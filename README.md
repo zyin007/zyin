@@ -16,14 +16,6 @@ Section order is set by `--r` (research) and `--i` (commercial) on each `<sectio
 ## Research section
 Four project cards; the synthetic biology / iGEM one spans the full width above the other three (`.page.wide`).
 
-## No contact details
-The site deliberately carries no email, no LinkedIn and no CV. The closing section states
-research interests instead of asking for work. If you want to be contactable later, add the
-details back to the `#interests` section.
-
-## To fill in (search for `TODO` in index.html)
-- Link to the Bioscience Review article
-
 ## Publish free on GitHub Pages
 1. Create a repo (e.g. `zihanyin.github.io`) and upload everything in this folder.
 2. Go to Settings → Pages → Deploy from branch → `main` / root.
