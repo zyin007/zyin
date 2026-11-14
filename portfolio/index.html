@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zihan Yin · Portfolio</title>
+<meta name="description" content="Zihan Yin, Medical Biosciences at Imperial College London. Lab research, data analysis, writing and ventures.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF7EE;
+  --paper-2:#F4EEDF;
+  --ink:#211E1A;
+  --ink-soft:#5B554C;
+  --line:#E4DCC8;
+  --pink:#F6B7C6;
+  --pink-deep:#D9496F;
+  --sage:#7E8C45;
+  --sage-soft:#DCE3B8;
+  --sky:#C5DDEA;
+  --manila:#E8CF9E;
+  --manila-2:#DDBF86;
+  --serif:"Instrument Serif", Georgia, serif;
+  --sans:"DM Sans", system-ui, sans-serif;
+  --mono:"DM Mono", ui-monospace, monospace;
+  --hand:"Caveat", cursive;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.hand{font-family:var(--hand)}
+.grid-bg{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:28px 28px;
+}
+
+/* ---------- top banner + nav ---------- */
+.banner{background:var(--pink-deep);color:#fff;overflow:hidden;white-space:nowrap}
+.banner .track{display:inline-block;padding:7px 0;animation:scroll 38s linear infinite}
+.banner span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-right:40px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+nav.top{
+  position:sticky;top:0;z-index:50;background:rgba(251,247,238,.92);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+}
+nav.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.logo{font-family:var(--serif);font-style:italic;font-size:26px;text-decoration:none;white-space:nowrap}
+.logo b{font-family:var(--mono);font-style:normal;font-weight:500;font-size:11px;color:var(--pink-deep);margin-left:4px;vertical-align:super}
+.tabs{display:flex;gap:6px;margin-left:auto;list-style:none}
+.tabs a{
+  display:block;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:7px 14px;border:1px solid var(--ink);border-radius:999px;transition:.2s;
+}
+.tabs a:hover{background:var(--pink);}
+
+.lens{display:flex;align-items:center;gap:8px;margin-left:8px}
+.lens .mono{font-size:10px;color:var(--ink-soft)}
+.switch{display:flex;border:1px solid var(--ink);border-radius:999px;padding:3px;background:#fff}
+.switch button{
+  font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;border:0;background:none;cursor:pointer;
+  padding:6px 12px;border-radius:999px;color:var(--ink);transition:.2s;white-space:nowrap
+}
+.switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.menu-btn{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:72px 0 96px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .9fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;background:var(--sky);padding:6px 12px;border:1px solid var(--ink);transform:rotate(-1.5deg)}
+.hero h1{
+  isolation:isolate;font-family:var(--serif);font-weight:400;font-size:clamp(72px,12vw,168px);line-height:.85;letter-spacing:-.02em;margin:28px 0 22px
+}
+.hero h1 em{display:block}
+.hero h1 .yin{display:inline-block;position:relative}
+.hero h1 .yin::after{
+  content:"";position:absolute;left:-4%;right:-6%;bottom:12%;height:28%;background:var(--pink);z-index:-1;transform:rotate(-1deg)
+}
+.hero .lede{font-size:19px;max-width:520px;color:var(--ink)}
+.hero .lede strong{font-weight:500;background:linear-gradient(transparent 62%, var(--sage-soft) 62%)}
+.hero .now{margin-top:26px;display:flex;gap:14px;align-items:flex-start;max-width:520px}
+.hero .now .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--pink-deep);margin-top:7px;box-shadow:0 0 0 0 rgba(217,73,111,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(217,73,111,0)}100%{box-shadow:0 0 0 0 rgba(217,73,111,0)}}
+.hero .now p{font-size:15px;color:var(--ink-soft)}
+.hero .now p b{color:var(--ink);font-weight:500}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;
+  padding:13px 20px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;background:#fff;transition:.2s
+}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+
+.polaroid{
+  background:#fff;padding:14px 14px 56px;box-shadow:0 18px 40px -18px rgba(33,30,26,.45), 0 2px 0 rgba(0,0,0,.04);
+  position:relative;
+}
+.polaroid img{aspect-ratio:4/5;object-fit:cover;width:100%;height:auto}
+.polaroid .cap{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:var(--hand);font-size:26px;color:var(--ink-soft)}
+.tape{position:absolute;width:120px;height:32px;background:rgba(246,183,198,.75);top:-14px;left:50%;transform:translateX(-50%) rotate(-4deg);
+  background-image:repeating-linear-gradient(90deg, rgba(255,255,255,.35) 0 6px, transparent 6px 12px)}
+.tape.sage{background-color:rgba(220,227,184,.85)}
+.hero-photo{position:relative;justify-self:center;width:min(380px,100%)}
+.hero-photo .polaroid{transform:rotate(3deg)}
+.sticky{
+  position:absolute;left:-70px;bottom:40px;width:190px;background:#FFF2A8;padding:16px 16px 18px;transform:rotate(-6deg);
+  box-shadow:0 10px 20px -10px rgba(0,0,0,.35);font-family:var(--hand);font-size:22px;line-height:1.1
+}
+.star{position:absolute;right:-30px;top:-34px;width:96px;animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- ticker ---------- */
+.ticker{background:var(--sage);color:var(--paper);border-block:1px solid var(--ink);overflow:hidden;white-space:nowrap}
+.ticker .track{display:inline-block;padding:12px 0;animation:scroll 40s linear infinite}
+.ticker span{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin-right:28px}
+.ticker span.s{color:var(--pink)}
+
+/* ---------- sections ---------- */
+main{display:flex;flex-direction:column}
+body[data-v="research"] .sec{order:var(--r)}
+body[data-v="industry"] .sec{order:var(--i)}
+body[data-v="research"] [data-only="industry"],
+body[data-v="industry"] [data-only="research"]{display:none !important}
+
+.sec{padding:110px 0;position:relative;scroll-margin-top:64px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:48px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(48px,7vw,88px);line-height:.9;letter-spacing:-.01em}
+.sec-head h2 i{color:var(--pink-deep)}
+.sec-head .num{font-family:var(--mono);font-size:12px;color:var(--ink-soft);display:block;margin-bottom:12px;letter-spacing:.1em}
+.sec-head p{max-width:380px;color:var(--ink-soft);font-size:15px}
+
+/* ---------- about: manila folder ---------- */
+.folder{position:relative;margin-top:44px}
+.folder .tab{
+  position:absolute;top:-42px;left:40px;height:44px;padding:0 34px;background:var(--manila);display:flex;align-items:center;
+  border-radius:14px 14px 0 0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase
+}
+.folder .body{
+  background:var(--manila);border-radius:0 18px 18px 18px;padding:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;
+  box-shadow:inset 0 -6px 0 var(--manila-2), 0 30px 50px -30px rgba(80,60,20,.45);position:relative
+}
+.folder .paper{background:#fff;padding:40px;transform:rotate(-1deg);box-shadow:0 10px 30px -15px rgba(0,0,0,.35);position:relative;
+  background-image:linear-gradient(transparent 31px, #E5ECF2 32px);background-size:100% 32px;line-height:32px}
+.folder .paper::before{content:"";position:absolute;left:28px;top:0;bottom:0;width:1px;background:#F1B5C2}
+.folder .paper h3{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.1;margin-bottom:8px}
+.folder .paper h3 i{color:var(--pink-deep)}
+.folder .paper p{margin-bottom:16px}
+.folder .paper p:last-child{margin-bottom:0}
+.about-right{position:relative;display:flex;flex-direction:column;gap:28px;align-items:center}
+
+.badge-card{
+  width:min(340px,100%);background:#fff;border-radius:14px;padding:22px;position:relative;transform:rotate(2deg);
+  box-shadow:0 20px 40px -20px rgba(0,0,0,.45);margin-top:30px
+}
+.badge-card::before{ /* clip */
+  content:"";position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:46px;height:52px;border-radius:8px 8px 4px 4px;
+  background:linear-gradient(180deg,#d9d9d9,#a9a9a9);box-shadow:inset 0 -6px 0 rgba(0,0,0,.12)
+}
+.badge-card::after{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:44px;height:7px;border-radius:4px;background:var(--paper-2)}
+.badge-top{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line);padding:10px 0 12px}
+.badge-top .t{font-family:var(--serif);font-style:italic;font-size:28px}
+.badge-row{display:grid;grid-template-columns:96px 1fr;gap:16px;padding-top:14px}
+.badge-row img{width:96px;height:120px;object-fit:cover;object-position:50% 25%;border-radius:6px;filter:saturate(.9)}
+.badge-row dl{display:grid;gap:6px}
+.badge-row dt{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ink-soft);text-transform:uppercase}
+.badge-row dd{font-size:14px;font-weight:500;line-height:1.25}
+.barcode{height:34px;margin-top:16px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 9px,var(--ink) 9px 12px,transparent 12px 14px)}
+.london{width:220px;align-self:flex-end;margin-right:10px}
+.london .polaroid{transform:rotate(-5deg);padding:10px 10px 46px}
+.london .polaroid img{aspect-ratio:3/4;object-position:50% 30%}
+.london .cap{font-size:22px}
+
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:6px 12px;background:#fff;white-space:nowrap}
+.chip.pink{background:var(--pink)}
+.chip.sage{background:var(--sage-soft)}
+.chip.sky{background:var(--sky)}
+
+/* ---------- research: notebook cards ---------- */
+.research{background:var(--paper-2)}
+.notebook{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.page{
+  background:#fff;padding:34px 28px 30px 48px;position:relative;border:1px solid var(--line);
+  background-image:linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size:20px 20px;background-color:#fff;transition:transform .25s, box-shadow .25s
+}
+.page:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:8px 8px 0 var(--ink)}
+.page::before{ /* binder holes */
+  content:"";position:absolute;left:14px;top:30px;bottom:30px;width:14px;
+  background:radial-gradient(circle at 7px 7px, var(--paper-2) 6px, transparent 7px) 0 0/14px 25%;
+}
+.page .exp{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.stamp{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;border:2px solid var(--pink-deep);color:var(--pink-deep);padding:3px 8px;transform:rotate(-6deg)}
+.stamp.done{border-color:var(--sage);color:var(--sage)}
+.page h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.05;margin-bottom:6px;background:#fff;display:inline}
+.page .where{font-size:13px;color:var(--ink-soft);margin:10px 0 18px;font-family:var(--mono);letter-spacing:.04em}
+.qa{display:grid;gap:12px;font-size:14.5px;line-height:1.5}
+.qa div{background:rgba(255,255,255,.92);padding:2px 0}
+.qa b{display:block;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--pink-deep)}
+.page .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.page .chips .chip{font-size:10px;padding:4px 9px}
+.notebook .wide{grid-column:1 / -1;padding-right:34px}
+.notebook .wide .qa{grid-template-columns:1fr 1fr;display:grid;gap:12px 32px}
+@media (max-width:760px){.notebook .wide .qa{grid-template-columns:1fr}}
+.research-note{margin-top:40px;display:flex;align-items:center;gap:16px;font-family:var(--hand);font-size:26px;color:var(--ink-soft)}
+.research-note svg{flex:none}
+
+/* ---------- code / data ---------- */
+.code{background:var(--ink);color:var(--paper)}
+.code .sec-head p{color:#B9B2A4}
+.code .sec-head h2 i{color:var(--pink)}
+.code-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:32px;align-items:start}
+.window{background:#2C2823;border:1px solid #4A443B;border-radius:12px;overflow:hidden}
+.window .bar{display:flex;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid #4A443B}
+.window .bar i{width:11px;height:11px;border-radius:50%;background:#5c554b}
+.window .bar i:nth-child(1){background:#E7708F}.window .bar i:nth-child(2){background:#EFD27A}.window .bar i:nth-child(3){background:#A9BA63}
+.window .bar span{margin-left:10px;font-family:var(--mono);font-size:12px;color:#B9B2A4}
+.window .inner{padding:28px}
+.window h3{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.05;margin-bottom:10px}
+.window p{color:#D7D0C2;font-size:15px}
+.pipe{display:flex;flex-direction:column;gap:0;margin:26px 0 8px;font-family:var(--mono);font-size:13px}
+.pipe .step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:12px 0;border-top:1px dashed #4A443B}
+.pipe .step:first-child{border-top:0}
+.pipe .n{width:28px;height:28px;border-radius:50%;border:1px solid var(--pink);color:var(--pink);display:grid;place-items:center;font-size:11px}
+.pipe .step b{color:var(--paper);font-weight:500;display:block}
+.pipe .step span{color:#B9B2A4;font-size:12px}
+.window .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.window .btn{background:transparent;color:var(--paper);border-color:var(--paper)}
+.window .btn:hover{box-shadow:3px 3px 0 var(--pink)}
+.stack{display:grid;gap:16px}
+.lang{background:#2C2823;border:1px solid #4A443B;border-radius:12px;padding:20px 22px}
+.lang .top{display:flex;justify-content:space-between;align-items:baseline}
+.lang .top b{font-family:var(--serif);font-weight:400;font-size:30px}
+.lang .top span{font-family:var(--mono);font-size:11px;color:#B9B2A4;letter-spacing:.08em;text-transform:uppercase}
+.lang p{font-size:13.5px;color:#D7D0C2;margin-top:6px}
+.certs{border:1px dashed #6a6257;border-radius:12px;padding:20px 22px}
+.certs ul{list-style:none;display:grid;gap:8px;margin-top:10px;font-size:14px;color:#D7D0C2}
+.certs li::before{content:"✓ ";color:var(--sage-soft)}
+
+/* ---------- lab bench ---------- */
+.bench{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.vial{
+  background:#fff;border:1px solid var(--ink);border-radius:10px;padding:18px 18px 16px;position:relative;overflow:hidden;min-height:170px;
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.vial::after{content:"";position:absolute;left:0;right:0;bottom:0;height:var(--fill);background:var(--c);opacity:.55;transition:height .9s cubic-bezier(.2,.8,.2,1);z-index:0}
+.vial.pre::after{height:0}
+.vial>*{position:relative;z-index:1}
+.vial .label{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.vial h4{font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.05;margin:8px 0}
+.vial p{font-size:13px;color:var(--ink-soft)}
+.vial .lvl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:#fff;border:1px solid var(--ink);border-radius:999px;padding:3px 8px;align-self:flex-start;margin-top:12px}
+.legend{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap;font-size:13px;color:var(--ink-soft)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:14px;height:14px;border:1px solid var(--ink);border-radius:3px;display:inline-block}
+
+/* ---------- creative ---------- */
+.creative{background:var(--pink)}
+.creative::before,.creative::after{ /* torn edges */
+  content:"";position:absolute;left:0;right:0;height:26px;background:var(--paper);
+  clip-path:polygon(0 0,100% 0,100% 40%,96% 80%,92% 45%,88% 90%,83% 50%,78% 85%,73% 40%,68% 75%,63% 35%,58% 85%,53% 50%,48% 90%,43% 40%,38% 80%,33% 45%,28% 90%,23% 50%,18% 80%,13% 40%,8% 85%,4% 45%,0 70%)
+}
+.creative::before{top:0}
+.creative::after{bottom:0;transform:scaleY(-1)}
+.creative{background-image:linear-gradient(rgba(217,73,111,.5) 2px, transparent 2px),linear-gradient(90deg, rgba(217,73,111,.5) 2px, transparent 2px);background-size:56px 56px}
+.creative .sec-head h2 i{color:#fff;-webkit-text-stroke:1px var(--ink)}
+.creative .sec-head p{color:var(--ink)}
+.board{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+.clip{grid-column:span 7;background:#FDFBF6;padding:34px 34px 40px;transform:rotate(-1.2deg);box-shadow:0 20px 40px -20px rgba(0,0,0,.4);position:relative;
+  clip-path:polygon(0 1%,4% 0,9% 1.2%,15% 0,22% .8%,30% 0,40% 1%,52% 0,63% 1.1%,75% 0,86% .9%,100% 0,99.4% 50%,100% 100%,90% 99%,78% 100%,64% 99%,50% 100%,36% 99.2%,20% 100%,8% 99%,0 100%)}
+.clip .mast{display:flex;justify-content:space-between;border-bottom:3px double var(--ink);padding-bottom:10px;margin-bottom:18px}
+.clip h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1.02}
+.clip h3 i{color:var(--pink-deep)}
+.clip .dek{font-size:15px;color:var(--ink-soft);margin:14px 0 0;columns:2;column-gap:28px}
+.clip .dek::first-letter{font-family:var(--serif);font-size:54px;float:left;line-height:.8;margin:4px 8px 0 0}
+.ribbon-card{grid-column:span 5;background:#fff;border:1px solid var(--ink);border-radius:18px;padding:30px;transform:rotate(1.5deg);position:relative;margin-top:30px}
+.rosette{position:absolute;right:22px;top:-40px;width:92px}
+.ribbon-card h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.05;margin:6px 0 10px;padding-right:80px}
+.ribbon-card>.mono{display:block;padding-right:90px}
+.ribbon-card p{font-size:14.5px;color:var(--ink-soft)}
+.note-card{grid-column:span 4;background:var(--sky);border:1px solid var(--ink);padding:26px;transform:rotate(-1deg);position:relative}
+.note-card.y{background:#FFF2A8;transform:rotate(1.4deg)}
+.note-card.g{background:var(--sage-soft);transform:rotate(-.6deg)}
+.note-card h4{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.05;margin:8px 0 10px}
+.note-card p{font-size:14px}
+.note-card .pin{position:absolute;top:-10px;left:50%;width:20px;height:20px;border-radius:50%;background:var(--pink-deep);box-shadow:inset -3px -3px 0 rgba(0,0,0,.2), 0 3px 4px rgba(0,0,0,.3);transform:translateX(-50%)}
+
+/* ---------- experience ---------- */
+.timeline{display:grid;gap:0;border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:170px 1fr 1.2fr;gap:28px;padding:28px 0;border-bottom:1px solid var(--ink);transition:background .2s}
+.row:hover{background:#fff}
+.row .when{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-soft);padding-top:6px}
+.row h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.05}
+.row .org{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.row ul{list-style:none;display:grid;gap:8px;font-size:14.5px}
+.row li{padding-left:18px;position:relative}
+.row li::before{content:"✦";position:absolute;left:0;color:var(--pink-deep);font-size:11px;top:3px}
+.row .tag{display:inline-block;margin-top:10px}
+.more{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mini{border:1px dashed var(--ink-soft);border-radius:12px;padding:16px 18px}
+.mini b{font-weight:500;display:block}
+.mini span{font-size:13px;color:var(--ink-soft)}
+
+/* ---------- contact ---------- */
+.contact{background:var(--paper-2);padding-bottom:140px}
+.flyer{max-width:640px;margin:0 auto;background:var(--pink);padding:48px;position:relative;transform:rotate(-1deg);box-shadow:0 30px 50px -30px rgba(0,0,0,.5)}
+.flyer::before{content:"";position:absolute;top:-12px;left:50%;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#eee,#999);box-shadow:0 3px 5px rgba(0,0,0,.35);transform:translateX(-50%)}
+.flyer h2{font-family:var(--sans);font-weight:700;font-size:clamp(34px,5vw,52px);line-height:1;letter-spacing:-.02em;text-transform:uppercase}
+.flyer p{margin:18px 0 0;font-size:17px;max-width:440px}
+  display:flex;align-items:flex-end;justify-content:center;min-height:150px;padding:14px 4px;text-decoration:none;
+  border-right:1px dashed var(--ink);font-family:var(--mono);font-size:12px;letter-spacing:.06em;writing-mode:vertical-rl;transform:rotate(180deg);
+  transition:transform .2s, background .2s
+}
+
+footer{border-top:1px solid var(--ink);padding:26px 0}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .mono{font-size:11px;color:var(--ink-soft)}
+
+/* reveal */
+.reveal{opacity:0;translate:0 24px;transition:opacity .7s ease, translate .7s ease, transform .25s, box-shadow .25s}
+.reveal.in{opacity:1;translate:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+  .reveal{opacity:1;translate:none}
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:1200px){
+  .tabs{display:none}
+  .menu-btn{display:inline-flex;margin-left:auto;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
+  nav.top.open .tabs{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--paper);padding:16px 24px;border-bottom:1px solid var(--line)}
+}
+@media (max-width:1000px){
+  .menu-btn{display:inline-flex;margin-left:auto;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer}
+  nav.top.open .tabs{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--paper);padding:16px 24px;border-bottom:1px solid var(--line)}
+  .lens{margin-left:0}
+  .notebook{grid-template-columns:1fr 1fr}
+  .bench{grid-template-columns:repeat(2,1fr)}
+  .code-grid{grid-template-columns:1fr}
+  .clip,.ribbon-card{grid-column:span 12}
+  .note-card{grid-column:span 6}
+}
+@media (max-width:760px){
+  .wrap{padding:0 16px}
+  nav.top .wrap{gap:10px}
+  .lens .mono{display:none}
+  .switch button{padding:6px 9px;font-size:10px}
+  .logo{font-size:22px}
+  .logo b{display:none}
+  .hero{padding:48px 0 72px}
+  .hero .wrap{grid-template-columns:1fr;gap:56px}
+  .hero-photo{width:min(300px,82%)}
+  .sticky{left:-30px;width:160px;font-size:19px;bottom:20px}
+  .star{width:70px;right:-14px}
+  .sec{padding:80px 0}
+  .folder .body{grid-template-columns:1fr;padding:28px 20px;gap:36px}
+  .folder .paper{padding:28px 22px 28px 40px}
+  .folder .tab{left:20px;padding:0 22px}
+  .notebook{grid-template-columns:1fr}
+  .bench{grid-template-columns:1fr 1fr;gap:12px}
+  .vial{min-height:150px;padding:14px}
+  .vial h4{font-size:21px}
+  .note-card{grid-column:span 12}
+  .clip{padding:26px 22px 32px}
+  .clip .dek{columns:1}
+  .row{grid-template-columns:1fr;gap:10px}
+  .more{grid-template-columns:1fr}
+  .flyer{padding:36px 24px}
+  .london{width:180px;align-self:center}
+}
+@media print{
+  .banner,nav.top,.ticker,.star,.sticky{display:none}
+  .reveal{opacity:1;translate:none}
+}
+</style>
+</head>
+
+<body data-v="research">
+
+<div class="banner" aria-hidden="true"><div class="track">
+  <span>Metabolism &middot; cancer biology &middot; the gut&ndash;immune axis</span><span>✦</span><span>Medical Biosciences · Imperial College London</span><span>✦</span><span>Bench + data + words</span><span>✦</span>
+  <span>Metabolism &middot; cancer biology &middot; the gut&ndash;immune axis</span><span>✦</span><span>Medical Biosciences · Imperial College London</span><span>✦</span><span>Bench + data + words</span><span>✦</span>
+</div></div>
+
+<nav class="top" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Zihan Yin<b>BSc '28</b></a>
+    <ul class="tabs" id="tabs">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#code">Code</a></li>
+      <li><a href="#lab">Lab</a></li>
+      <li><a href="#making">Writing &amp; making</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#interests">Interests</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="tabs">Menu</button>
+    <div class="lens">
+      <span class="mono">Lens</span>
+      <div class="switch" role="group" aria-label="Choose portfolio version">
+        <button type="button" data-set="research" aria-pressed="true">Research</button>
+        <button type="button" data-set="industry" aria-pressed="false">Commercial</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero grid-bg" id="top">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow mono">✦ Portfolio · Nº 2026</span>
+      <h1><em>Zihan</em><span class="yin">Yin</span></h1>
+      <p class="lede" data-only="research">Medical Biosciences student at Imperial College London. I <strong>design experiments at the bench</strong>, then analyse what comes out of them in R and Python.</p>
+      <p class="lede" data-only="industry">Medical Biosciences student at Imperial College London. I <strong>run experiments, read the numbers and size the market</strong>, then explain all three in plain English.</p>
+      <div class="now">
+        <span class="dot" aria-hidden="true"></span>
+        <p data-only="research"><b>Right now:</b> leading a group project on insulin resistance, using CRISPR-Cas9 to knock out a target gene in HepG2 liver cells, and designing an RNA sensor for lung squamous cell carcinoma with a synthetic biology team.</p>
+        <p data-only="industry"><b>Right now:</b> co-founding an infant formula startup and writing weekly company notes as a sector analyst on the healthcare and chemicals desks.</p>
+      </div>
+      <div class="cta">
+        <a class="btn primary" href="#research" data-only="research">See the research ↓</a>
+        <a class="btn primary" href="#experience" data-only="industry">See the experience ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <svg class="star" viewBox="0 0 100 100" aria-hidden="true"><path fill="#F6B7C6" stroke="#211E1A" stroke-width="1.5" d="M50 2 L58 36 L92 22 L66 48 L98 62 L62 64 L70 98 L50 70 L30 98 L38 64 L2 62 L34 48 L8 22 L42 36 Z"/></svg>
+      <div class="polaroid">
+        <span class="tape"></span>
+        <img src="assets/zihan.jpg" alt="Zihan Yin, seated at a restaurant counter in a cream knit jumper" width="768" height="1024">
+        <span class="cap">hi, I'm Zihan!</span>
+      </div>
+      <div class="sticky" data-only="research">ask me about HepG2 cells, qPCR, &amp; why my first Western blot didn't work</div>
+      <div class="sticky" data-only="industry">ask me about the US$4.6bn formula segment &amp; cost-per-tin models</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track">
+  <span>CRISPR-Cas9</span><span class="s">✦</span><span>Western blot</span><span class="s">✦</span><span>qPCR</span><span class="s">✦</span><span>Cell culture</span><span class="s">✦</span><span>Python</span><span class="s">✦</span><span>R</span><span class="s">✦</span><span>SQL</span><span class="s">✦</span><span>ANOVA</span><span class="s">✦</span><span>Science writing</span><span class="s">✦</span><span>Market sizing</span><span class="s">✦</span>
+  <span>CRISPR-Cas9</span><span class="s">✦</span><span>Western blot</span><span class="s">✦</span><span>qPCR</span><span class="s">✦</span><span>Cell culture</span><span class="s">✦</span><span>Python</span><span class="s">✦</span><span>R</span><span class="s">✦</span><span>SQL</span><span class="s">✦</span><span>ANOVA</span><span class="s">✦</span><span>Science writing</span><span class="s">✦</span><span>Market sizing</span><span class="s">✦</span>
+</div></div>
+
+<main>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec" id="about" style="--r:1;--i:1">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">01 / ABOUT</span><h2>A little <i>about me</i></h2></div>
+    </div>
+
+    <div class="folder reveal">
+      <span class="tab">File: Z. Yin</span>
+      <div class="body">
+        <div class="paper">
+          <h3>Hello, <i>I'm Zihan.</i></h3>
+          <p>I'm a second-year Medical Biosciences student at Imperial College London, originally from Oxford. I like questions that start in a cell and end up somewhere bigger, such as diet, inflammation and metabolic disease.</p>
+          <p data-only="research">Most of my time goes into the lab. I'm leading a group project on insulin resistance, and I've designed and run a study of apoptosis in colorectal cancer cells from first hypothesis to final panel presentation. When a result doesn't make sense, I want to know why.</p>
+          <p data-only="industry">Alongside the lab, I'm co-founding a microbiome-led infant formula startup and covering healthcare and chemicals companies as a sector analyst. I like being the person who can read the paper <em>and</em> the annual report.</p>
+          <p>Outside work I play flute and acoustic guitar, run long distances, play badminton and read a lot.</p>
+        </div>
+
+        <div class="about-right">
+          <div class="badge-card" aria-label="ID card">
+            <div class="badge-top"><span class="t">Zihan Yin</span><span class="mono" style="font-size:10px">Imperial · MedBio</span></div>
+            <div class="badge-row">
+              <img src="assets/zihan.jpg" alt="" aria-hidden="true">
+              <dl>
+                <div><dt>Occupation</dt><dd>Student researcher</dd></div>
+                <div><dt>Based in</dt><dd>London, UK</dd></div>
+                <div><dt>Languages</dt><dd>English, Mandarin</dd></div>
+                <div><dt>Expires</dt><dd>2028 (BSc)</dd></div>
+              </dl>
+            </div>
+            <div class="barcode" aria-hidden="true"></div>
+          </div>
+          <div class="london">
+            <div class="polaroid">
+              <span class="tape sage"></span>
+              <img src="assets/zihan-london.jpg" alt="Zihan by a window overlooking Tower Bridge at night" width="514" height="966">
+              <span class="cap">London, by night</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="facts reveal">
+      <span class="chip pink">A-Levels: A*A*AA</span>
+      <span class="chip sage">Innovation Prize · Lavazza hackathon</span>
+      <span class="chip sky">Published in Bioscience Review</span>
+      <span class="chip">Academic rep</span>
+      <span class="chip">Student ambassador</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESEARCH ================= -->
+<section class="sec research" id="research" style="--r:2;--i:4">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">02 / RESEARCH</span><h2>From the <i>lab notebook</i></h2></div>
+      <p>Four projects: two at the bench, one in the dataframe, one on paper. Each one starts with a question I wanted answered.</p>
+    </div>
+
+    <div class="notebook">
+      <article class="page reveal wide">
+        <div class="exp"><span class="mono">Exp. 04</span><span class="stamp">In design</span></div>
+        <h3>An RNA sensor that only fires inside a lung tumour</h3>
+        <p class="where">Team synthetic biology project (iGEM-style) &middot; 2026&ndash;now</p>
+        <div class="qa">
+          <div><b>Problem</b>Lung squamous cell carcinoma has few clean driver mutations, so targeted therapy works poorly and chemotherapy hits healthy cells too. Five-year survival sits around 18%.</div>
+          <div><b>Design</b>An ADAR-based RNA sensor (RADAR): a synthetic mRNA carrying a guide sequence, a built-in UAG stop codon and a payload. The stop codon only gets edited out, and the payload only gets translated, when the target transcript is present in the cell.</div>
+          <div><b>My part</b>Chose DSG3 as the second biomarker for the AND gate and argued why the gate is needed: L1-FGGY cross-reacts with wild-type FGGY mRNA in normal lung, and DSG3 is absent there. Proposed split caspase-3 (p17/p12) as the effector, since neither half kills a cell alone. Worked out how to limit off-target ADAR editing with a shorter guide duplex and endogenous ADAR, validated by counting A-to-G changes in treated versus untreated sequencing.</div>
+          <div><b>Open questions</b>L1-FGGY expression hasn't been measured against the sensor's detection floor, and ADAR levels in these tumours are unknown.</div>
+        </div>
+        <div class="chips"><span class="chip pink">ADAR / RADAR</span><span class="chip">AND gate</span><span class="chip">Split caspase-3</span><span class="chip sky">TCGA</span><span class="chip sky">RNA structure prediction</span></div>
+      </article>
+
+      <article class="page reveal">
+        <div class="exp"><span class="mono">Exp. 01</span><span class="stamp">Ongoing</span></div>
+        <h3>Insulin resistance in type 2 diabetes</h3>
+        <p class="where">Group research lead · Imperial · 2026–now</p>
+        <div class="qa">
+          <div><b>Question</b>How does losing one gene change how liver cells store and handle fuel?</div>
+          <div><b>Approach</b>Chose the target gene, knocked it out in HepG2 cells with CRISPR-Cas9, and measured glycogen, lipid droplets and ROS.</div>
+          <div><b>My role</b>Leading the group from gene selection through to running the experiments.</div>
+        </div>
+        <div class="chips"><span class="chip pink">CRISPR-Cas9</span><span class="chip">HepG2</span><span class="chip">Glycogen assay</span><span class="chip">ROS</span></div>
+      </article>
+
+      <article class="page reveal">
+        <div class="exp"><span class="mono">Exp. 02</span><span class="stamp done">Presented</span></div>
+        <h3>Caspase-3 apoptosis in colorectal cancer cells</h3>
+        <p class="where">Imperial · 2026</p>
+        <div class="qa">
+          <div><b>Question</b>Does sucralose trigger caspase-3-mediated apoptosis in HCT-116 cells?</div>
+          <div><b>Approach</b>Built the hypothesis from the literature with a small team. Ran SRB viability, Western blot and qPCR (comparative Ct), then one-way ANOVA.</div>
+          <div><b>Takeaway</b>Our first results didn't agree. Working out why taught me more than the results did.</div>
+        </div>
+        <div class="chips"><span class="chip pink">Western blot</span><span class="chip">qPCR ΔΔCt</span><span class="chip">SRB</span><span class="chip">ANOVA</span></div>
+      </article>
+
+      <article class="page reveal">
+        <div class="exp"><span class="mono">Exp. 03</span><span class="stamp done">Independent</span></div>
+        <h3>Gut microbiome in IBD</h3>
+        <p class="where">Independent project · 2026</p>
+        <div class="qa">
+          <div><b>Question</b>Which bacterial genera differ between Crohn's disease, ulcerative colitis and non-IBD gut samples?</div>
+          <div><b>Approach</b>Queried HMP2 data in SQLite, compared groups in Python with Mann-Whitney U tests, then applied Benjamini-Hochberg FDR correction.</div>
+          <div><b>Output</b>A set of significant genera, plus plots of how they differ across groups.</div>
+        </div>
+        <div class="chips"><span class="chip sky">Python</span><span class="chip sky">SQLite</span><span class="chip">Mann-Whitney U</span><span class="chip">FDR</span></div>
+      </article>
+    </div>
+
+    <p class="research-note reveal" data-only="research">
+      <svg width="54" height="30" viewBox="0 0 54 30" aria-hidden="true"><path d="M2 20 C 14 4, 30 30, 50 10" fill="none" stroke="#211E1A" stroke-width="1.6"/><path d="M42 6 L51 9 L47 18" fill="none" stroke="#211E1A" stroke-width="1.6"/></svg>
+      Research interests: metabolic disease, nutrient sensing, the gut–immune axis
+    </p>
+  </div>
+</section>
+
+<!-- ================= CODE ================= -->
+<section class="sec code" id="code" style="--r:3;--i:3">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">03 / CODE &amp; DATA</span><h2>The <i>dry lab</i></h2></div>
+      <p>I use code to answer biological questions, and lately to read markets too. Statistics come first, then the plots.</p>
+    </div>
+
+    <div class="code-grid">
+      <div class="window reveal">
+        <div class="bar"><i></i><i></i><i></i><span>hmp2_ibd_analysis/</span></div>
+        <div class="inner">
+          <h3>Gut microbiome data analysis</h3>
+          <p>An independent project comparing microbial abundance across Crohn's disease, ulcerative colitis and non-IBD samples in the Human Microbiome Project 2 dataset.</p>
+          <div class="pipe">
+            <div class="step"><span class="n">01</span><div><b>Load &amp; structure</b><span>HMP2 abundance tables + metadata → SQLite</span></div></div>
+            <div class="step"><span class="n">02</span><div><b>Query &amp; tidy</b><span>SQL joins by diagnosis group → pandas</span></div></div>
+            <div class="step"><span class="n">03</span><div><b>Test</b><span>Mann-Whitney U per genus (non-parametric; abundance data is skewed)</span></div></div>
+            <div class="step"><span class="n">04</span><div><b>Correct</b><span>Benjamini-Hochberg FDR across all genera</span></div></div>
+            <div class="step"><span class="n">05</span><div><b>Visualise</b><span>Plots of the significant genera by group</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="lang reveal"><div class="top"><b>Python</b><span>pandas · scipy · stats</span></div><p>Data wrangling, hypothesis testing and multiple-testing correction for the HMP2 project.</p></div>
+        <div class="lang reveal"><div class="top"><b>R</b><span>coursework stats</span></div><p>Regression, ANOVA and Tukey HSD on lab data, from my Statistics using R module.</p></div>
+        <div class="lang reveal"><div class="top"><b>SQL</b><span>SQLite</span></div><p>Structuring and querying large public datasets before analysis.</p></div>
+        <div class="lang reveal" data-only="industry"><div class="top"><b>Excel</b><span>modelling</span></div><p>Market sizing and a cost-per-tin model for the startup, built against UK retail prices.</p></div>
+        <div class="certs reveal">
+          <span class="mono" style="color:#B9B2A4">Certifications</span>
+          <ul>
+            <li>Statistics &amp; Data Analysis in Public Health (Imperial)</li>
+            <li>Python for Researchers (Imperial)</li>
+            <li>Intermediate Python (Imperial)</li>
+            <li>Databases and SQL (IBM)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LAB BENCH ================= -->
+<section class="sec grid-bg" id="lab" style="--r:4;--i:6">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">04 / LAB SKILLS</span><h2>On the <i>bench</i></h2></div>
+      <p>Techniques I have run myself. How full each tube is shows how comfortable I am with it.</p>
+    </div>
+    <div class="bench">
+      <div class="vial pre reveal" style="--fill:80%;--c:var(--pink)"><div><span class="label">Tube A1</span><h4>Cell culture</h4><p>HepG2, HCT-116</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:72%;--c:var(--pink)"><div><span class="label">Tube A2</span><h4>CRISPR-Cas9 knockout</h4><p>Gene KO in HepG2</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:75%;--c:var(--pink)"><div><span class="label">Tube A3</span><h4>Western blot</h4><p>Protein expression, caspase-3</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:75%;--c:var(--pink)"><div><span class="label">Tube A4</span><h4>qPCR</h4><p>Comparative Ct (ΔΔCt)</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:75%;--c:var(--sage-soft)"><div><span class="label">Tube B1</span><h4>SRB viability</h4><p>Cytotoxicity assays</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:62%;--c:var(--sage-soft)"><div><span class="label">Tube B2</span><h4>Metabolic assays</h4><p>Glycogen, lipid droplets, ROS</p></div><span class="lvl">Hands-on</span></div>
+      <div class="vial pre reveal" style="--fill:30%;--c:var(--sky)"><div><span class="label">Tube B3</span><h4>Flow cytometry</h4><p>In training</p></div><span class="lvl">Learning</span></div>
+      <div class="vial pre reveal" style="--fill:30%;--c:var(--sky)"><div><span class="label">Tube B4</span><h4>Fluorescence microscopy</h4><p>In training</p></div><span class="lvl">Learning</span></div>
+    </div>
+    <div class="legend reveal">
+      <span><i style="background:var(--pink)"></i>Molecular &amp; cell biology</span>
+      <span><i style="background:var(--sage-soft)"></i>Assays</span>
+      <span><i style="background:var(--sky)"></i>Currently training</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WRITING & MAKING ================= -->
+<section class="sec creative" id="making" style="--r:5;--i:5">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">05 / WRITING &amp; MAKING</span><h2>Things I've <i>made</i></h2></div>
+      <p>Science writing, a hackathon win, and a weekly deadline I've kept so far.</p>
+    </div>
+
+    <div class="board">
+      <article class="clip reveal">
+        <div class="mast"><span class="mono">Bioscience Review</span><span class="mono">2026</span></div>
+        <h3>Modern diets and the gut–immune axis: <i>why food matters</i> for inflammation and disease</h3>
+        <p class="dek">An article for a general student audience on how what we eat shapes the gut microbiome and, through it, the immune system. It ties into the microbiome questions I've been chasing in the lab and in code. Writing it pushed me to explain mechanisms without the jargon.</p>
+        <!-- TODO: add link to the published article -->
+      </article>
+
+      <article class="ribbon-card reveal">
+        <svg class="rosette" viewBox="0 0 100 130" aria-hidden="true">
+          <path d="M34 70 L22 126 L38 114 L46 128 L52 74Z" fill="#D9496F" stroke="#211E1A" stroke-width="1.5"/>
+          <path d="M66 70 L78 126 L62 114 L54 128 L48 74Z" fill="#7E8C45" stroke="#211E1A" stroke-width="1.5"/>
+          <circle cx="50" cy="48" r="40" fill="#F6B7C6" stroke="#211E1A" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <circle cx="50" cy="48" r="28" fill="#FBF7EE" stroke="#211E1A" stroke-width="1.5"/>
+          <text x="50" y="45" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#211E1A">INNOV.</text>
+          <text x="50" y="57" text-anchor="middle" font-family="DM Mono, monospace" font-size="9" fill="#211E1A">PRIZE</text>
+        </svg>
+        <span class="mono">Sept 2026 · Imperial Chemical Kitchen</span>
+        <h3>Lavazza Rainbow Studio Hackathon</h3>
+        <p>We won the <b>Innovation Prize</b> and came runner-up overall in a five-day multidisciplinary challenge to build an immersive coffee concept. I brought molecular gastronomy research into the concept, and we pitched it to senior Lavazza executives.</p>
+      </article>
+
+      <div class="note-card reveal"><span class="pin"></span><span class="mono">Weekly · Oct 2026–now</span><h4>Meridian62 notes</h4><p>A published company note every week on the Healthcare Services &amp; Medical Equipment and Chemicals desks. I also edit other analysts' notes for structure and sourcing.</p></div>
+      <div class="note-card y reveal"><span class="pin"></span><span class="mono">2026–now</span><h4>A startup idea</h4><p>A stage 1 infant formula designed around a measurable gut-microbiome outcome instead of a fixed ingredient list. We're preparing the pitch for a startup competition.</p></div>
+      <div class="note-card g reveal"><span class="pin"></span><span class="mono">Off the clock</span><h4>Flute &amp; guitar</h4><p>I play flute and acoustic guitar. Long-distance running and badminton keep me sane in exam season.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="sec" id="experience" style="--r:6;--i:2">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="num">06 / EXPERIENCE</span><h2><span data-only="research">Leadership &amp; <i>beyond the lab</i></span><span data-only="industry">Ventures &amp; <i>experience</i></span></h2></div>
+      <p data-only="industry">Commercial and analytical work alongside my degree: building a company, covering listed companies, and forecasting markets.</p>
+      <p data-only="research">Roles that taught me to communicate, organise and advocate.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="row reveal">
+        <div class="when">2026 → now</div>
+        <div><h3>Co-founder</h3><div class="org">Early-stage infant formula startup · team of two</div></div>
+        <ul>
+          <li>Developing a stage 1 formula built around a measurable gut-microbiome outcome.</li>
+          <li data-only="industry">Sized the oligosaccharide-containing formula segment (~US$4.6bn, ~11% a year) and built a cost-per-tin model against UK prices using CMA market findings.</li>
+          <li data-only="industry">Reviewed UK infant formula regulation and an incumbent patent, and planned an 18-month validation roadmap.</li>
+          <li data-only="research">Reviewing the regulation and patent landscape, and planning an 18-month validation roadmap.</li>
+        </ul>
+      </div>
+      <div class="row reveal">
+        <div class="when">Oct 2026 → now</div>
+        <div><h3>Sector Analyst &amp; Editor</h3><div class="org">Meridian62 · student-run weekly market publication</div></div>
+        <ul>
+          <li>Turn company filings and announcements into a published note every week on the Healthcare Services &amp; Medical Equipment and Chemicals desks.</li>
+          <li>Edit other analysts' notes for structure, sourcing and plain English.</li>
+        </ul>
+      </div>
+      <div class="row reveal" data-only="industry">
+        <div class="when">Oct → Nov 2026</div>
+        <div><h3>MarketMind Challenge</h3><div class="org">JPMorganChase · with AmplifyME</div></div>
+        <ul>
+          <li>Six-week individual forecasting competition. Each week I read macro and market indicators, formed a view and decided how strongly to back it against a student leaderboard.</li>
+        </ul>
+      </div>
+      <div class="row reveal" data-only="industry">
+        <div class="when">Nov 2026</div>
+        <div><h3>Commercial Law Job Simulation</h3><div class="org">Slaughter and May · via Forage</div></div>
+        <ul>
+          <li>Drafted part of a pitch responding to an RFP and built a decision tree to guide a client's app development.</li>
+          <li>Reviewed draft Heads of Terms and wrote an attendance note.</li>
+        </ul>
+      </div>
+      <div class="row reveal">
+        <div class="when">Sept 2025 → 2026</div>
+        <div><h3>Academic Representative</h3><div class="org">Imperial College London</div></div>
+        <ul>
+          <li>Presented peer feedback to course staff and departmental leadership at Student-Staff Liaison meetings.</li>
+          <li>Made the case to a module lead for changing assessment pacing and secured more explanation time after iRATs and tRATs.</li>
+        </ul>
+      </div>
+      <div class="row reveal">
+        <div class="when">2026 → now</div>
+        <div><h3>Student Ambassador</h3><div class="org">Recruitment &amp; Outreach · Imperial College London</div></div>
+        <ul>
+          <li>Represent Imperial at open days, school visits and outreach events, and talk prospective students and parents through applying and studying Medical Biosciences.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="more reveal">
+      <div class="mini"><b>Clinical work experience</b><span>John Radcliffe Hospital, Oxford · 2023. Shadowed consultants in Infectious Diseases and General Medicine and completed a nursing shift.</span></div>
+      <div class="mini"><b>Secretary, student hall</b><span>2025–26. Took minutes, handled correspondence and coordinated hall events.</span></div>
+      <div class="mini"><b>Hospitality &amp; peer mentoring</b><span>Bar and café work alongside study, 2023–26. Year 7 peer mentor, trained in mental health first aid.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec contact" id="interests" style="--r:7;--i:7">
+  <div class="wrap">
+    <div class="flyer reveal">
+      <span class="mono">&#10022; Looking ahead</span>
+      <h2>What I want to work on next</h2>
+      <p data-only="research">Metabolic disease, nutrient sensing and the gut&ndash;immune axis. The questions that keep pulling me back are the ones where something going wrong inside a cell turns into something you can measure in a person.</p>
+      <p data-only="industry">The point where the science meets the decision: how a result at the bench turns into a product, a market, or a case someone can act on.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="mono">Zihan Yin · London · 2026</span>
+    <span class="mono">Medical Biosciences · Imperial College London</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var CV = { research: 1, industry: 1 }; // valid versions
+  var body = document.body;
+  var buttons = document.querySelectorAll(".switch button");
+
+  function setVersion(v, push){
+    if(!CV[v]) v = "research";
+    body.setAttribute("data-v", v);
+    buttons.forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.set === v)); });
+    if(push){
+      var u = new URL(location.href); u.searchParams.set("v", v);
+      history.replaceState(null, "", u);
+    }
+    try{ localStorage.setItem("zy-lens", v); }catch(e){}
+    // re-run reveal for newly shown items
+    document.querySelectorAll(".reveal:not(.in)").forEach(function(el){ io && io.observe(el); });
+  }
+
+  // initial: ?v= param wins, then saved choice, then research
+  var param = new URLSearchParams(location.search).get("v");
+  var saved = null; try{ saved = localStorage.getItem("zy-lens"); }catch(e){}
+  if(param === "internship" || param === "commercial" || param === "industry") param = "industry";
+  if(param === "grad" || param === "phd") param = "research";
+
+  buttons.forEach(function(b){ b.addEventListener("click", function(){ setVersion(b.dataset.set, true); }); });
+
+  // reveal on scroll
+  var io = ("IntersectionObserver" in window) ? new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add("in");
+        if(e.target.classList.contains("vial")) setTimeout(function(){ e.target.classList.remove("pre"); }, 150);
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12}) : null;
+  if(io){ document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); }); }
+  else { document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); el.classList.remove("pre"); }); }
+
+  setVersion(param || saved || "research", false);
+
+  // mobile menu
+  var nav = document.getElementById("nav"), mb = document.getElementById("menuBtn");
+  mb.addEventListener("click", function(){
+    var open = nav.classList.toggle("open"); mb.setAttribute("aria-expanded", String(open));
+  });
+  document.querySelectorAll("#tabs a").forEach(function(a){ a.addEventListener("click", function(){ nav.classList.remove("open"); mb.setAttribute("aria-expanded","false"); }); });
+})();
+</script>
+</body>
+</html>
